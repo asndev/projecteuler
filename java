@@ -1,1 +1,1 @@
-./
+/Users/antonstepan/NetBeansProjects/projectEuler/src/de/stepana/euler/
