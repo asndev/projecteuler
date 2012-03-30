@@ -12,12 +12,32 @@ import java.math.BigInteger;
  */
 public class peDemo {
 
-    public static void main(String[] args) {
+	public static void main(String[] args) {
 		
-		System.out.println("(1:1)" + acklow(1,1));
-		System.out.println("(2:2)" + acklow(2,2));
-		System.out.println("(3:3)" + acklow(3,3));
-		System.out.println("(4:4)" + ack(new BigInteger("4"), new BigInteger("4")));
+		/*
+		System.out.println("()" +
+				// A(5,5) = A(4(5,4)) = A(4, A(4, A(5,3)))
+				// = A(4, A(4, A(4,A(5,2)))
+				// = A(4, A(4, A(4,A(4,A(5,1)))
+				ack( new BigInteger("4"),
+					 ack(new BigInteger("4"),
+						ack(new BigInteger("4"),
+							ack(new BigInteger("4"),
+								ack(new BigInteger("5"), new BigInteger("1")))))
+				)
+		);
+		
+		*/
+//		int res = acklow(1,1) + acklow(2,2) + acklow(3,3);
+//		BigInteger result = ack(new BigInteger("4"), new BigInteger("4")).multiply(new BigInteger("3"));
+//		BigInteger finalResult = result.add(new BigInteger(Integer.toString(res)));
+//		System.out.println(finalResult);
+		
+		// A(4, A(5, n-1))
+		System.out.println(
+			ack(new BigInteger("4"), new BigInteger("4"))
+		);
+				
 	}
 
 	public static BigInteger hyper(BigInteger a, BigInteger n, BigInteger b) {
