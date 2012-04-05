@@ -2,39 +2,58 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package de.stepana.euler;
+package de.pedemo;
 
 import java.math.BigInteger;
+
 /**
  *
  * @author antonstepan
  */
-public class problem282 {
-    
-    
-    public static void main(String[] args) {
-        
-        BigInteger result = new BigInteger("0");
-        for (int i = 0; i <= 6; i++) {
-            System.out.println("i = " + i);
-            result = result.add(ack(new BigInteger(Integer.toString(i)), new BigInteger(Integer.toString(i))));
-        }
-        System.out.println("result: " + result);
-        result = result.mod((new BigInteger("14").pow(8)));
-        System.out.println("final result: " + result);
-    }
-    
-    
-    public static BigInteger ack(BigInteger m, BigInteger n) {
-        
-        if (m.toString() == "0") return n.add(new BigInteger("1"));
-        if (n.toString() == "0") return ack(m.subtract(new BigInteger("1")), new BigInteger("1"));
-        if (m.compareTo((new BigInteger("14").pow(8))) > 0) {
-            m = m.mod((new BigInteger("14").pow(8)));
-        };
-        if (n.compareTo((new BigInteger("14").pow(8))) > 0) {
-            n = n.mod((new BigInteger("14").pow(8)));
-        };
-        return ack(m.subtract(new BigInteger("1")), ack(m, n.subtract(new BigInteger("1"))));
-    }
+public class peDemo {
+
+	public static void main(String[] args) {
+		
+		/*
+		System.out.println("()" +
+				// A(5,5) = A(4(5,4)) = A(4, A(4, A(5,3)))
+				// = A(4, A(4, A(4,A(5,2)))
+				// = A(4, A(4, A(4,A(4,A(5,1)))
+				ack( new BigInteger("4"),
+					 ack(new BigInteger("4"),
+						ack(new BigInteger("4"),
+							ack(new BigInteger("4"),
+								ack(new BigInteger("5"), new BigInteger("1")))))
+				)
+		);
+		
+		*/
+//		int res = acklow(1,1) + acklow(2,2) + acklow(3,3);
+//		BigInteger result = ack(new BigInteger("4"), new BigInteger("4")).multiply(new BigInteger("3"));
+//		BigInteger finalResult = result.add(new BigInteger(Integer.toString(res)));
+//		System.out.println(finalResult);
+		
+		// A(4, A(5, n-1))
+		System.out.println(
+			ack(new BigInteger("4"), new BigInteger("4"))
+		);
+				
+	}
+
+	public static BigInteger hyper(BigInteger a, BigInteger n, BigInteger b) {
+		if (n.compareTo(new BigInteger("1")) == 0) return a.modPow(b, new BigInteger("14").pow(8));
+		if (b.compareTo(new BigInteger("0")) == 0) return new BigInteger("1");
+		return hyper(a, n.subtract(new BigInteger("1")), hyper(a,n,b.subtract(new BigInteger("1"))));
+	}
+
+	public static BigInteger ack(BigInteger m, BigInteger n) {
+
+		return hyper(new BigInteger("2"), m.subtract(new BigInteger("2")), (n.add(new BigInteger("3")))).subtract(new BigInteger("3"));
+	}
+	
+	public static int acklow(int m, int n) {
+		if (m==0) return n+1;
+		if (n==0) return acklow(m-1,1);
+		return acklow(m-1,acklow(m,n-1));
+	}
 }
