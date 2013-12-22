@@ -7,7 +7,7 @@ package de.stepana.euler;
  * 
  * @author antonstepan
  */
-public class problem7 {
+public class Problem7 {
 
 
   public static void main(final String[] args) {

@@ -6,7 +6,7 @@ import java.math.BigInteger;
  * 
  * @author antonstepan
  */
-public class problem13 {
+public class Problem13 {
 
 
   public static void main(final String[] args) {

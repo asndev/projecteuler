@@ -9,7 +9,7 @@ import java.math.BigInteger;
  * 
  * @author antonstepan
  */
-public class problem282 {
+public class Problem282 {
 
   public static void main(final String[] args) {
 

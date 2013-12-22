@@ -10,7 +10,7 @@ import java.util.Stack;
  * 
  * @author antonstepan
  */
-public class problem359 {
+public class Problem359 {
 
   public static void main(final String[] args) {
 

@@ -7,7 +7,7 @@ package de.stepana.euler;
  * 
  * @author antonstepan
  */
-public class problem9 {
+public class Problem9 {
   public static void main(final String[] args) {
     final long start = System.currentTimeMillis();
 

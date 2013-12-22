@@ -7,9 +7,9 @@ package de.stepana.euler;
  * 
  * @author antonstepan
  */
-public class isPrime {
+public class IsPrime {
 
-  public isPrime(final int number) {}
+  public IsPrime(final int number) {}
 
   public static boolean isP(final int n) {
     boolean prime = true;
